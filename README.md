@@ -1,64 +1,64 @@
-# Web Development Project 3 - *Flashcards 2*
+# Web Development Project 4 - *Veni Vici!*
 
-Submitted by: **Alexander Pulido**
+Submitted by: **Your Name Here**
 
-This web app: **helps users study English-to-Spanish phrases with guess checking, progress tracking, shuffling, and mastered-card removal**
+This web app: **Discover random anime with images and attributes! Click on any attribute to add it to a ban list, which filters out future results. Includes a history sidebar to track previously viewed anime.**
 
-Time spent: **10** hours spent in total
+Time spent: **12** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **The user can enter their guess into an input box *before* seeing the flipside of the card**
-  - Application features a clearly labeled input box with a submit button where users can type in a guess
-  - Clicking on the submit button with an **incorrect** answer shows visual feedback that it is wrong
-  - Clicking on the submit button with a **correct** answer shows visual feedback that it is correct
-- [x] **The user can navigate through an ordered list of cards**
-  - A forward/next button displayed on the card navigates to the next card in a set sequence when clicked
-  - A previous/back button displayed on the card returns to the previous card in a set sequence when clicked
-  - Both the next and back buttons have a visual disabled state at the beginning or end of the list, with no wrap-around navigation
+- [x] **Application features a button that creates a new API fetch request on click and displays at least three attributes and an image obtained from the returned JSON data**
+  - The type of attribute displayed for each image should be consistent across API calls (i.e. if you are using a cat API, and display the color, breed, and age in response to an initial API call, subsequent button clicks should also result in the color, breed, and age being displayed)
+- [x] **Only one item/data from API call response is viewable at a time and at least one image is displayed per API call**
+  - A single result of an API call is displayed at a time
+  - Displayed attributes should match the displayed image (i.e., if showing a picture of a Siamese cat and the attribute breed, the displayed breed should be 'Siamese' not 'Ragdoll' or another breed that doesn't match)
+  - There is at least one image per API call
+- [x] **API call response results should appear random to the user**
+  - Clicking on the API call button should generate a seemingly random new result each time
+  - Note: Repeat results are permitted but the API used should have a reasonably large amount of data and repeats should not be frequent
+- [x] **Clicking on a displayed value for one attribute adds it to a displayed ban list**
+  - At least one attribute for each API result should be clickable
+  - Clicking on a clickable attribute not on the ban list, should immediately add it to the ban list
+  - Clicking on an attribute in the ban list should immediately remove it from the ban list
+- [x] **Attributes on the ban list prevent further images/API results with that attribute from being displayed**
+  - Clicking on the API call button should not result in any image/attributes with attribute values in the ban list being displayed (ex. Using a cat API, if the ban list includes the value 'Siberian' for the breed attribute, clicking on the Discover button should never result in a Siberian cat being displayed)
+  - Note: More attribute values on the ban list may result in a higher frequency of repeat results
+  - [x] _To ensure an accurate grade, your recording **must** show that when clicked, an attribute in the ban list is immediately removed from the list of banned attributes_
 
-## Optional Features
 
 The following **optional** features are implemented:
 
-- [x] Users can use a shuffle button to randomize the order of the cards
-  - Cards remain in the same sequence unless the shuffle button is clicked
-  - Cards change to a random sequence once the shuffle button is clicked
-- [x] A user’s answer may be counted as correct even when it is slightly different from the target answer
-  - Answers are normalized to ignore capitalization, punctuation, spacing, and accent differences
-  - Partial matches are accepted for close answers
-- [x] A counter displays the user’s current and longest streak of correct responses
-  - The current counter increments when a user guesses an answer correctly
-  - The current counter resets to 0 when a user guesses an answer incorrectly
-  - A separate counter tracks the longest streak
-- [x] A user can mark a card that they have mastered and have it removed from the pool of displayed cards
-  - The user can mark a card to indicate that it has been mastered
-  - Mastered cards are removed from the active deck and displayed in a mastered list
+- [x] Multiple types of attributes are clickable and can be added to the ban list
+- [x] Users can see a stored history of their previously displayed results from this session
+  - A dedicated section of the application displays all the previous images/attributes seen before
+  - Each time the API call button is clicked, the history updates with the newest API result
 
-## Additional Features
+The following **additional** features are implemented:
 
-- [x] Responsive layout with a dedicated study dashboard for progress stats
-- [x] Empty-state message when the full deck has been mastered
-- [x] Visual input validation states for correct and incorrect guesses
+* [x] Responsive layout that adapts to mobile screens
+* [x] Anime-themed styling with purple color scheme
 
 ## Video Walkthrough
 
-Here’s a walkthrough of implemented user stories:
 
 
-https://github.com/phw/peek
+<img src='https://imgur.com/a/XyXkY98' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Add your GIF or video link here when ready -->
-https://imgur.com/a/BVv8ghq
+<!-- Replace this with whatever GIF tool you used! -->
+GIF created with ...
+
+[peek](https://github.com/phw/peek) 
+
 ## Notes
 
-One of the main challenges was keeping navigation, shuffle order, and mastered-card removal in sync without breaking the user’s place in the deck. The app now resets per-card guess state cleanly whenever the active card changes.
+Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright 2026 Alexander Pulido
+    Copyright [yyyy] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
