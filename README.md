@@ -1,10 +1,10 @@
 # Web Development Project 5 - *Name of App Here*
 
-Submitted by: **Your Name Here**
+Submitted by: **Alexander Pulido**
 
-This web app: **insert description**
+This web app: **WorldScope**
 
-Time spent: **X** hours spent in total
+Time spent: **12** hours spent in total
 
 ## Required Features
 
@@ -40,14 +40,13 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/8uOplVi.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+
+
+[peek](https://github.com/phw/peek) for Linux. 
 
 ## Notes
 
