@@ -2,8 +2,8 @@
   font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #f5f0e8;
-  background: #160d0a;
+  color: #eef4ff;
+  background: #07111f;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -31,6 +31,7 @@ body {
 
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
 }
