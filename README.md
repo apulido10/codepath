@@ -1,61 +1,76 @@
-# Web Development Project 7 - *Crewmates*
+# Web Development Final Project - *BitLedgerly*
 
-Submitted by: **Alexander Pulido**
+Submitted by: **Alexander**
 
-This web app: **Create, read, update, and delete space crewmates with Supabase-backed persistence. Assign roles that restrict available skills, view crew statistics, and track mission readiness.**
+This web app: **BitLedgerly is a crypto-focused community forum. Users can create posts (news, analysis, questions, memes), browse a live feed of discussions, sort or search them, and discuss in the comments. The home page also pulls live prices for top cryptocurrencies (BTC, ETH, SOL, DOGE, ADA, XRP) from the public CoinGecko API so the conversation always has current market context.**
 
-Time spent: **10** hours spent in total
+Time spent: **15** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
 
-- [x] **The web app contains a page that features a create form to add a new crewmate**
-  - Users can name the crewmate
-  - Users can set the crewmate's attributes by clicking on one of several values
-- [x] **The web app includes a summary page of all the user's added crewmatese**
-  -  The web app contains a summary page dedicated to displaying all the crewmates the user has made so far
-  -  The summary page is sorted by creation date such that the most recently created crewmates appear at the top
-- [x] **A previously created crewmate can be updated from the list of crewmates in the summary page**
-  - Each crewmate has an edit button that will take users to an update form for the relevant crewmate
-  - Users can see the current attributes of their crewmate on the update form
-  - After editing the crewmate's attribute values using the form, the user can immediately see those changes reflected in the update form and on the summary page 
-- [x] **A previously created crewmate can be deleted from the crewmate list**
-  - Using the edit form detailed in the previous _crewmates can be updated_ feature, there is a button that allows users to delete that crewmate
-  - After deleting a crewmate, the crewmate should no longer be visible in the summary page
-  - [x] **Each crewmate has a direct, unique URL link to an info page about them**
-    - Clicking on a crewmate in the summary page navigates to a detail page for that crewmate
-    - The detail page contains extra information about the crewmate not included in the summary page
-    - Users can navigate to to the edit form from the detail page
+- [x] **Web app includes a create form that allows the user to create posts**
+  - Form requires users to add a post title
+  - Forms should have the *option* for users to add: 
+    - additional textual content
+    - an image added as an external image URL
+- [x] **Web app includes a home feed displaying previously created posts**
+  - Web app must include home feed displaying previously created posts
+  - By default, each post on the posts feed should show only the post's:
+    - creation time
+    - title 
+    - upvotes count
+  - Clicking on a post should direct the user to a new page for the selected post
+- [x] **Users can view posts in different ways**
+  - Users can sort posts by either:
+    -  creation time
+    -  upvotes count
+  - Users can search for posts by title
+- [x] **Users can interact with each post in different ways**
+  - The app includes a separate post page for each created post when clicked, where any additional information is shown, including:
+    - content
+    - image
+    - comments
+  - Users can leave comments underneath a post on the post page
+  - Each post includes an upvote button on the post page. 
+    - Each click increases the post's upvotes count by one
+    - Users can upvote any post any number of times
+
+- [x] **A post that a user previously created can be edited or deleted from its post pages**
+  - After a user creates a new post, they can go back and edit the post
+  - A previously created post can be deleted from its post page
 
 The following **optional** features are implemented:
 
-- [x] A crewmate can be given a category upon creation which restricts their attribute value options
-  - User chooses a role (Engineer, Scientist, Captain, Medic, Security) before selecting a skill
-  - Based on the role, users are allowed to access only a subset of the possible skill attributes
-- [x] A section of the summary page, displays summary statistics about a user's crew on their crew page
-  - Shows total crewmate count and per-role breakdown with percentages
-- [x] The summary page displays a custom "success" metric about a user's crew which changes the look of the crewmate list
-  - A "Crew Readiness" percentage tracks how many of the 5 roles are filled, with color-coded banners (red/yellow/green)
 
+- [ ] Web app implements pseudo-authentication
+- [ ] Users can repost a previous post by referencing its post ID
+- [ ] Users can customize the interface
+- [x] Users can add more characteristics to their posts
+  - Users can set flags such as "Question", "News", "Analysis", "Discussion", or "Meme" while creating a post
+- [x] Web app displays a loading animation whenever data is being fetched
 
 The following **additional** features are implemented:
 
-* [x] Detail page shows bio, creation date, and unique ID for each crewmate
-* [x] Color picker for crewmate avatars
-* [x] Responsive sidebar navigation with active state highlighting
+* [x] **Live crypto prices panel** on the home feed, fetched from the CoinGecko API and auto-refreshed every 60 seconds (BTC, ETH, SOL, DOGE, ADA, XRP with 24h change indicators)
+* [x] Sidebar dashboard with running totals (post count, total upvotes)
+* [x] Glassmorphism crypto-inspired dark theme
+
+
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/a/Xe5YFjQ' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
 <!-- Recommended tools:
-
+[Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
 [peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
@@ -64,7 +79,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [2026] [Alexander Pulido]
+    Copyright [1016] [Alexander Pulido]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

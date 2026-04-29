@@ -1,91 +1,89 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import supabase from './client'
 import Home from './pages/Home'
-import CreateCrewmate from './pages/CreateCrewmate'
-import Gallery from './pages/Gallery'
-import CrewmateDetail from './pages/CrewmateDetail'
-import EditCrewmate from './pages/EditCrewmate'
+import PostDetail from './pages/PostDetail'
+import EditPost from './pages/EditPost'
+import PostModal from './components/PostModal'
 import './App.css'
 
 function App() {
-  const [crewmates, setCrewmates] = useState([])
+  const [posts, setPosts] = useState([])
+  const [modalOpen, setModalOpen] = useState(false)
   const location = useLocation()
 
-  const fetchCrewmates = async () => {
+  const fetchPosts = async () => {
     const { data, error } = await supabase
-      .from('crewmates')
+      .from('posts')
       .select('*')
       .order('created_at', { ascending: false })
     if (error) {
       console.error('Supabase fetch error:', error)
     } else {
-      setCrewmates(data)
+      setPosts(data || [])
     }
   }
 
   useEffect(() => {
-    fetchCrewmates()
+    fetchPosts()
   }, [])
 
-  const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/create', label: 'Create' },
-    { to: '/gallery', label: 'Gallery' },
-  ]
-
   return (
-    <div className="app-layout">
-      <div className="dashboard-backdrop" />
-      <nav className="sidebar">
-        <Link to="/" className="sidebar-brand">
-          <h2>CrewMates</h2>
-        </Link>
-        <div className="sidebar-nav">
-          {navLinks.map((link) => (
+    <div className="app-shell">
+      <header className="topbar">
+        <div className="topbar-inner">
+          <Link to="/" className="brand">
+            <span className="brand-mark">₿</span>
+            <span className="brand-name">BitLedgerly</span>
+          </Link>
+
+          <nav className="topnav">
             <Link
-              key={link.to}
-              to={link.to}
-              className={`sidebar-link ${location.pathname === link.to ? 'active' : ''}`}
+              to="/"
+              className={`topnav-link ${location.pathname === '/' ? 'active' : ''}`}
             >
-              {link.label}
+              Feed
             </Link>
-          ))}
+            <a
+              className="topnav-link"
+              href="https://www.coingecko.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Markets
+            </a>
+          </nav>
+
+          <button
+            type="button"
+            className="topbar-cta"
+            onClick={() => setModalOpen(true)}
+          >
+            New Post
+          </button>
         </div>
-        <div className="sidebar-stats">
-          <div className="sidebar-stat">
-            <span className="sidebar-stat-value">{crewmates.length}</span>
-            <span className="sidebar-stat-label">Total Crew</span>
-          </div>
-          <div className="sidebar-stat">
-            <span className="sidebar-stat-value">
-              {new Set(crewmates.map((c) => c.role)).size}
-            </span>
-            <span className="sidebar-stat-label">Roles</span>
-          </div>
-        </div>
-      </nav>
-      <main className="dashboard">
+      </header>
+
+      <main className="page">
         <Routes>
-          <Route path="/" element={<Home crewmates={crewmates} />} />
           <Route
-            path="/create"
-            element={<CreateCrewmate onCreated={fetchCrewmates} />}
+            path="/"
+            element={<Home posts={posts} onOpenCreate={() => setModalOpen(true)} />}
           />
-          <Route
-            path="/gallery"
-            element={<Gallery crewmates={crewmates} />}
-          />
-          <Route
-            path="/crewmate/:id"
-            element={<CrewmateDetail crewmates={crewmates} />}
-          />
-          <Route
-            path="/edit/:id"
-            element={<EditCrewmate crewmates={crewmates} onUpdated={fetchCrewmates} />}
-          />
+          <Route path="/post/:id" element={<PostDetail onChanged={fetchPosts} />} />
+          <Route path="/edit/:id" element={<EditPost onChanged={fetchPosts} />} />
         </Routes>
       </main>
+
+      <footer className="site-footer">
+        Built for the love of crypto · Prices via CoinGecko
+      </footer>
+
+      <PostModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onCreated={fetchPosts}
+      />
     </div>
   )
 }
